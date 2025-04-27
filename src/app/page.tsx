@@ -1,11 +1,12 @@
-import Image from "next/image";
+// import Image from "next/image";
 import styles from "./page.module.css";
+import HomePage from "./pages";
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Image
+        {/* <Image
           className={styles.logo}
           src="/next.svg"
           alt="Next.js logo"
@@ -18,9 +19,9 @@ export default function Home() {
             Get started by editing <code>src/app/page.tsx</code>.
           </li>
           <li>Save and see your changes instantly.</li>
-        </ol>
+        </ol> */}
 
-        <div className={styles.ctas}>
+        {/* <div className={styles.ctas}>
           <a
             className={styles.primary}
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
@@ -44,9 +45,10 @@ export default function Home() {
           >
             Read our docs
           </a>
-        </div>
+        </div> */}
+        <HomePage />
       </main>
-      <footer className={styles.footer}>
+      {/* <footer className={styles.footer}>
         <a
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           target="_blank"
@@ -89,7 +91,7 @@ export default function Home() {
           />
           Go to nextjs.org →
         </a>
-      </footer>
+      </footer> */}
     </div>
   );
 }
