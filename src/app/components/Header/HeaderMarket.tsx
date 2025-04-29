@@ -1,5 +1,5 @@
 'use client';
-import { SetStateAction, useState } from 'react';
+import { SetStateAction, useState, useMemo } from 'react';
 import { Box, Button, CardMedia, Drawer, Grid, IconButton, Typography } from '@mui/material';
 import newArrival from '../../../../public/img/new-arrival.png';
 import Image from 'next/image';
@@ -10,7 +10,7 @@ import GradientMenu from '../Menu/GradianMenu';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-const menuItems = ['Home', 'About Us', 'Our Teams', 'Marketplace', 'Roadmap', 'Whitepaper'];
+// const menuItems = ['Home', 'About Us', 'Our Teams', 'Marketplace', 'Roadmap', 'Whitepaper'];
 
 const character = [
   { id: 1, name: 'Assassin', image: 'https://i.ibb.co/svTBDCbd/pngwing-6.png' },
@@ -20,6 +20,11 @@ const character = [
 ];
 
 export default function HeaderMarket() {
+  const menuItems = useMemo(
+    () => ['Home', 'About Us', 'Our Teams', 'Marketplace', 'Roadmap', 'Whitepaper'],
+    []
+  );
+
   const [selectedMenu, setSelectedMenu] = useState(menuItems[3]);
   const [menuMobi, setMenuMobi] = useState(false);
 

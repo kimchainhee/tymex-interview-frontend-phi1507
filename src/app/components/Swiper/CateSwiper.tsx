@@ -41,6 +41,7 @@ const options = [
 export default function CateSwiper() {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const swiperRef = useRef<any>(null); // <- ref để điều khiển swiper instance
 
   const handleArrowClick = () => {
