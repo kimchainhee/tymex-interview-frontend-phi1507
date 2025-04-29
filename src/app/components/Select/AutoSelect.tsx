@@ -46,9 +46,9 @@ export default function AutoSelect({ options, defaultValue, placeholder }: AutoS
   return (
     <StyledAutocomplete
       disablePortal
-      options={options}
+      options={options || []}
       defaultValue={defaultValue}
-      getOptionLabel={(option) => option.label}
+      // getOptionLabel={(option) => option.label}
       renderInput={(params) => <TextField {...params} placeholder={placeholder} size="small" />}
     />
   );
