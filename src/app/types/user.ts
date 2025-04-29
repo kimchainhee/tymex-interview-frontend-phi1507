@@ -11,5 +11,5 @@ export interface User {
   date: string;
   tier: string;
   favourite: number;
-  [key: string]: unknown; // tuỳ theo mock API
+  [key: string]: unknown;
 }

@@ -10,8 +10,6 @@ import GradientMenu from '../Menu/GradianMenu';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-// const menuItems = ['Home', 'About Us', 'Our Teams', 'Marketplace', 'Roadmap', 'Whitepaper'];
-
 const character = [
   { id: 1, name: 'Assassin', image: 'https://i.ibb.co/svTBDCbd/pngwing-6.png' },
   { id: 2, name: 'Neon Guy', image: 'https://i.ibb.co/chrkQTjM/pngwing-6-1.png' },

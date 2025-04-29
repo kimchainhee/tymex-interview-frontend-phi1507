@@ -50,7 +50,6 @@ const GradientRangeSlider = styled(Slider)(({}) => ({
     fontWeight: 'bold',
     padding: '6px 8px',
     '&::before': {
-      // Giữ nguyên mũi tên chỉ xuống
       display: 'block',
       position: 'absolute',
       width: 8,
