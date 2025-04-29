@@ -1,13 +1,13 @@
 import { Autocomplete, TextField } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-interface OptionType {
+type OptionType = {
   label: string;
-  value?: string | number;
-}
+  value: number;
+};
 
 interface AutoSelectProps {
-  options: OptionType[];
+  options?: OptionType[];
   defaultValue?: OptionType;
   placeholder?: string;
 }
@@ -42,13 +42,15 @@ const StyledAutocomplete = styled(Autocomplete)({
   },
 });
 
-export default function AutoSelect({ options, defaultValue, placeholder }: AutoSelectProps) {
+export default function AutoSelect({ options = [], defaultValue, placeholder }: AutoSelectProps) {
+  const safeOptions = Array.isArray(options) ? options : [];
+
   return (
     <StyledAutocomplete
       disablePortal
-      options={options || []}
+      options={safeOptions}
       defaultValue={defaultValue}
-      // getOptionLabel={(option) => option.label}
+      getOptionLabel={(option) => (option as OptionType)?.label ?? ''}
       renderInput={(params) => <TextField {...params} placeholder={placeholder} size="small" />}
     />
   );
