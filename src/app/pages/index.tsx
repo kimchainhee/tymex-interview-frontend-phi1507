@@ -45,9 +45,13 @@ export default function HomePage() {
 
   const debouncedSearch = useDebounce(searchTerm, 1000);
 
-  const filteredUsers = users.filter((user) =>
-    user.name.toLowerCase().includes(debouncedSearch.toLowerCase())
-  );
+  // const filteredUsers = users.filter((user) =>
+  //   user.name.toLowerCase().includes(debouncedSearch.toLowerCase())
+  // );
+
+  const filteredUsers = Array.isArray(users)
+    ? users.filter((user) => user.name.toLowerCase().includes(debouncedSearch.toLowerCase()))
+    : [];
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
