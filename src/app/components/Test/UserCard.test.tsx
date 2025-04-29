@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import UserCard from '../Card/UserCard';
+import ProductCard from '../Card/ProductCard';
 import { User } from '../../types/user';
 
 const mockUser: User = {
@@ -8,9 +8,9 @@ const mockUser: User = {
   email: 'a.nguyen@example.com',
 };
 
-describe('UserCard', () => {
+describe('ProductCard', () => {
   it('hiển thị đúng tên và email', () => {
-    render(<UserCard user={mockUser} />);
+    render(<ProductCard user={mockUser} />);
     
     expect(screen.getByText('Nguyễn Văn A')).toBeInTheDocument();
     expect(screen.getByText('a.nguyen@example.com')).toBeInTheDocument();
