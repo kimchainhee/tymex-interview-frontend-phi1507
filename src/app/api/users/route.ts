@@ -1,19 +1,586 @@
 import { NextResponse } from 'next/server';
 
+const user = [
+  {
+    id: 1,
+    name: 'The DJ',
+    price: 2.75,
+    image: 'https://i.ibb.co/1JqYvWSQ/pngwing-6.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Epic',
+    favourite: 0,
+  },
+  {
+    id: 2,
+    name: 'Assassin',
+    price: 2.75,
+    image: 'https://i.ibb.co/svTBDCbd/pngwing-6.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Common',
+    favourite: 0,
+  },
+  {
+    id: 3,
+    name: 'Neon Guy',
+    price: 2.75,
+    image: 'https://i.ibb.co/chrkQTjM/pngwing-6-1.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Rare',
+    favourite: 0,
+  },
+  {
+    id: 4,
+    name: 'Assassin',
+    price: 2.75,
+    image: 'https://i.ibb.co/svTBDCbd/pngwing-6.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Common',
+    favourite: 0,
+  },
+  {
+    id: 5,
+    name: 'Mafia England',
+    price: 2.75,
+    image: 'https://i.ibb.co/nqMtf860/pngwing-6-2.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Legendary',
+    favourite: 0,
+  },
+  {
+    id: 6,
+    name: 'Bassketball Girl',
+    price: 2.75,
+    image: 'https://i.ibb.co/cc1HYj3c/pngwing-6-3.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 1,
+    },
+    date: '04/27/2025',
+    tier: 'Mythic',
+    favourite: 0,
+  },
+  {
+    id: 7,
+    name: 'The DJ',
+    price: 2.75,
+    image: 'https://i.ibb.co/1JqYvWSQ/pngwing-6.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Epic',
+    favourite: 0,
+  },
+  {
+    id: 8,
+    name: 'Bassketball Girl',
+    price: 2.75,
+    image: 'https://i.ibb.co/cc1HYj3c/pngwing-6-3.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 1,
+    },
+    date: '04/27/2025',
+    tier: 'Mythic',
+    favourite: 0,
+  },
+  {
+    id: 9,
+    name: 'Assassin',
+    price: 2.75,
+    image: 'https://i.ibb.co/svTBDCbd/pngwing-6.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Common',
+    favourite: 0,
+  },
+  {
+    id: 10,
+    name: 'Neon Guy',
+    price: 2.75,
+    image: 'https://i.ibb.co/chrkQTjM/pngwing-6-1.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Rare',
+    favourite: 0,
+  },
+  {
+    id: 11,
+    name: 'Mafia England',
+    price: 2.75,
+    image: 'https://i.ibb.co/nqMtf860/pngwing-6-2.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Legendary',
+    favourite: 0,
+  },
+  {
+    id: 12,
+    name: 'Neon Guy',
+    price: 2.75,
+    image: 'https://i.ibb.co/chrkQTjM/pngwing-6-1.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Rare',
+    favourite: 0,
+  },
+  {
+    id: 13,
+    name: 'The DJ',
+    price: 2.75,
+    image: 'https://i.ibb.co/1JqYvWSQ/pngwing-6.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Epic',
+    favourite: 0,
+  },
+  {
+    id: 14,
+    name: 'Assassin',
+    price: 2.75,
+    image: 'https://i.ibb.co/svTBDCbd/pngwing-6.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Common',
+    favourite: 0,
+  },
+  {
+    id: 15,
+    name: 'Neon Guy',
+    price: 2.75,
+    image: 'https://i.ibb.co/chrkQTjM/pngwing-6-1.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Rare',
+    favourite: 0,
+  },
+  {
+    id: 16,
+    name: 'Assassin',
+    price: 2.75,
+    image: 'https://i.ibb.co/svTBDCbd/pngwing-6.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Common',
+    favourite: 0,
+  },
+  {
+    id: 17,
+    name: 'Mafia England',
+    price: 2.75,
+    image: 'https://i.ibb.co/nqMtf860/pngwing-6-2.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Legendary',
+    favourite: 0,
+  },
+  {
+    id: 18,
+    name: 'Bassketball Girl',
+    price: 2.75,
+    image: 'https://i.ibb.co/cc1HYj3c/pngwing-6-3.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 1,
+    },
+    date: '04/27/2025',
+    tier: 'Mythic',
+    favourite: 0,
+  },
+  {
+    id: 19,
+    name: 'The DJ',
+    price: 2.75,
+    image: 'https://i.ibb.co/1JqYvWSQ/pngwing-6.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Epic',
+    favourite: 0,
+  },
+  {
+    id: 20,
+    name: 'Bassketball Girl',
+    price: 2.75,
+    image: 'https://i.ibb.co/cc1HYj3c/pngwing-6-3.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 1,
+    },
+    date: '04/27/2025',
+    tier: 'Mythic',
+    favourite: 0,
+  },
+  {
+    id: 21,
+    name: 'The DJ',
+    price: 2.75,
+    image: 'https://i.ibb.co/1JqYvWSQ/pngwing-6.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Epic',
+    favourite: 0,
+  },
+  {
+    id: 22,
+    name: 'Assassin',
+    price: 2.75,
+    image: 'https://i.ibb.co/svTBDCbd/pngwing-6.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Common',
+    favourite: 0,
+  },
+  {
+    id: 23,
+    name: 'Neon Guy',
+    price: 2.75,
+    image: 'https://i.ibb.co/chrkQTjM/pngwing-6-1.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Rare',
+    favourite: 0,
+  },
+  {
+    id: 24,
+    name: 'Assassin',
+    price: 2.75,
+    image: 'https://i.ibb.co/svTBDCbd/pngwing-6.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Common',
+    favourite: 0,
+  },
+  {
+    id: 25,
+    name: 'Mafia England',
+    price: 2.75,
+    image: 'https://i.ibb.co/nqMtf860/pngwing-6-2.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Legendary',
+    favourite: 0,
+  },
+  {
+    id: 26,
+    name: 'Bassketball Girl',
+    price: 2.75,
+    image: 'https://i.ibb.co/cc1HYj3c/pngwing-6-3.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 1,
+    },
+    date: '04/27/2025',
+    tier: 'Mythic',
+    favourite: 0,
+  },
+  {
+    id: 27,
+    name: 'The DJ',
+    price: 2.75,
+    image: 'https://i.ibb.co/1JqYvWSQ/pngwing-6.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Epic',
+    favourite: 0,
+  },
+  {
+    id: 28,
+    name: 'Bassketball Girl',
+    price: 2.75,
+    image: 'https://i.ibb.co/cc1HYj3c/pngwing-6-3.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 1,
+    },
+    date: '04/27/2025',
+    tier: 'Mythic',
+    favourite: 0,
+  },
+  {
+    id: 29,
+    name: 'Assassin',
+    price: 2.75,
+    image: 'https://i.ibb.co/svTBDCbd/pngwing-6.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Common',
+    favourite: 0,
+  },
+  {
+    id: 30,
+    name: 'Neon Guy',
+    price: 2.75,
+    image: 'https://i.ibb.co/chrkQTjM/pngwing-6-1.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Rare',
+    favourite: 0,
+  },
+  {
+    id: 31,
+    name: 'Mafia England',
+    price: 2.75,
+    image: 'https://i.ibb.co/nqMtf860/pngwing-6-2.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Legendary',
+    favourite: 0,
+  },
+  {
+    id: 32,
+    name: 'Neon Guy',
+    price: 2.75,
+    image: 'https://i.ibb.co/chrkQTjM/pngwing-6-1.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Rare',
+    favourite: 0,
+  },
+  {
+    id: 33,
+    name: 'The DJ',
+    price: 2.75,
+    image: 'https://i.ibb.co/1JqYvWSQ/pngwing-6.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Epic',
+    favourite: 0,
+  },
+  {
+    id: 34,
+    name: 'Assassin',
+    price: 2.75,
+    image: 'https://i.ibb.co/svTBDCbd/pngwing-6.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Common',
+    favourite: 0,
+  },
+  {
+    id: 35,
+    name: 'Neon Guy',
+    price: 2.75,
+    image: 'https://i.ibb.co/chrkQTjM/pngwing-6-1.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Rare',
+    favourite: 0,
+  },
+  {
+    id: 36,
+    name: 'Assassin',
+    price: 2.75,
+    image: 'https://i.ibb.co/svTBDCbd/pngwing-6.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Common',
+    favourite: 0,
+  },
+  {
+    id: 37,
+    name: 'Mafia England',
+    price: 2.75,
+    image: 'https://i.ibb.co/nqMtf860/pngwing-6-2.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Legendary',
+    favourite: 0,
+  },
+  {
+    id: 38,
+    name: 'Bassketball Girl',
+    price: 2.75,
+    image: 'https://i.ibb.co/cc1HYj3c/pngwing-6-3.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 1,
+    },
+    date: '04/27/2025',
+    tier: 'Mythic',
+    favourite: 0,
+  },
+  {
+    id: 39,
+    name: 'The DJ',
+    price: 2.75,
+    image: 'https://i.ibb.co/1JqYvWSQ/pngwing-6.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 0,
+    },
+    date: '04/27/2025',
+    tier: 'Epic',
+    favourite: 0,
+  },
+  {
+    id: 40,
+    name: 'Bassketball Girl',
+    price: 2.75,
+    image: 'https://i.ibb.co/cc1HYj3c/pngwing-6-3.png',
+    author: {
+      name: 'Ghozali_Ghozalu',
+      avatar: 'https://i.ibb.co/w3PWNRW/Ellipse-15.png',
+      available: 1,
+    },
+    date: '04/27/2025',
+    tier: 'Mythic',
+    favourite: 0,
+  },
+];
+
 export async function GET() {
-  try {
-    const res = await fetch('https://run.mocky.io/v3/ccaf9b35-65a8-462a-bd37-b27aef6efc7a', {
-      cache: 'no-store',
-    });
-
-    if (!res.ok) {
-      throw new Error('Failed to fetch users');
-    }
-
-    const users = await res.json();
-    return NextResponse.json(users);
-  } catch (error) {
-    console.error(error);
-    return NextResponse.json({ message: 'Failed to load users' }, { status: 500 });
-  }
+  return NextResponse.json(user);
 }
+
+// export async function GET() {
+//   try {
+//     const res = await fetch('https://run.mocky.io/v3/ccaf9b35-65a8-462a-bd37-b27aef6efc7a', {
+//       cache: 'no-store',
+//     });
+
+//     if (!res.ok) {
+//       throw new Error('Failed to fetch users');
+//     }
+
+//     const users = await res.json();
+//     return NextResponse.json(users);
+//   } catch (error) {
+//     console.error(error);
+//     return NextResponse.json({ message: 'Failed to load users' }, { status: 500 });
+//   }
+// }
